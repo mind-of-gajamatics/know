@@ -1,0 +1,48 @@
+import MathGraph from '@/components/MathGraph'
+
+export const metadata = {
+  title: "Trigonometric Functions Explained",
+  description: "Explore sine, cosine, and tangent with beautiful visualizations",
+  date: "2025-01-20",
+  author: "Math Educator",
+  tags: ["trigonometry", "sine", "cosine", "waves"]
+}
+
+# Trigonometric Functions
+
+Trigonometry is everywhere - from sound waves to circular motion!
+
+## The Sine Wave
+
+The sine function creates a perfect wave pattern:
+
+<MathGraph
+  title="f(x) = sin(x)"
+  func={(x) => Math.sin(x)}
+  xMin={-2 * Math.PI}
+  xMax={2 * Math.PI}
+  color="#10b981"
+  width={600}
+  height={400}
+/>
+
+## The Cosine Wave
+
+Cosine is just sine shifted by 90 degrees:
+
+<MathGraph
+  title="f(x) = cos(x)"
+  func={(x) => Math.cos(x)}
+  xMin={-2 * Math.PI}
+  xMax={2 * Math.PI}
+  color="#8b5cf6"
+  width={600}
+  height={400}
+/>
+
+## Applications
+
+- **Physics**: Describing wave motion
+- **Engineering**: Signal processing
+- **Music**: Understanding sound waves
+- **Astronomy**: Modeling planetary orbits
