@@ -18,8 +18,8 @@ export interface PostMetadata {
 async function getMetadataFromFile(slug: string) {
  try {
     // Dynamically import the MDX file to get the metadata export
-    const module = await import(`@/contents/posts/${slug}.mdx`)
-    const metadata = module.metadata
+    const mdxModule = await import(`@/contents/posts/${slug}.mdx`)
+    const metadata = mdxModule.metadata
     
     if (!metadata) {
       return null
@@ -33,7 +33,7 @@ async function getMetadataFromFile(slug: string) {
       author: metadata.author,
       tags: metadata.tags || [],
     }
-  } catch (error) {
+  } catch {
     return null
   } 
 }
@@ -69,7 +69,7 @@ export async function getPostBySlug(slug: string) {
       ...metadata,
       content: fileContents,
     }
-  } catch (error){
+  } catch {
     return null
   }
 }
