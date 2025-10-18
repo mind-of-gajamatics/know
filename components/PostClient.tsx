@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { PostMetadata } from '@/lib/server'
+import { ComponentType } from 'react'
 
 interface PostClientProps {
   metadata: PostMetadata
@@ -9,13 +10,13 @@ interface PostClientProps {
 }
 
 export default function PostClient({ metadata, slug }: PostClientProps) {
-  const [MDXContent, setMDXContent] = useState<any>(null)
+  const [MDXContent, setMDXContent] = useState<ComponentType | null>(null)
 
   useEffect(() => {
     async function loadMDX() {
       try {
-        const module = await import(`@/contents/posts/${slug}.mdx`)
-        setMDXContent(() => module.default)
+        const mdxModule = await import(`@/contents/posts/${slug}.mdx`)
+        setMDXContent(() => mdxModule.default)
       } catch (error) {
         console.error('Failed to load MDX:', error)
       }
