@@ -1,0 +1,88 @@
+import MathGraph from '@/components/MathGraph'
+
+export const metadata = {
+  title: "Multiple Functions Comparison",
+  description: "Compare different mathematical functions on the same graph",
+  date: "2025-01-25",
+  author: "Math Educator",
+  tags: ["functions", "comparison", "graphs"]
+}
+
+# Multiple Functions on One Graph
+
+You can now plot multiple functions on the same graph to compare them!
+
+## Basic Trig Functions
+
+<MathGraph
+  title="sin(x), cos(x), and tan(x)"
+  functions={[
+    { func: (x) => Math.sin(x), color: '#3b82f6', label: 'sin(x)' },
+    { func: (x) => Math.cos(x), color: '#ec4899', label: 'cos(x)' },
+    { func: (x) => Math.tan(x), color: '#10b981', label: 'tan(x)' }
+  ]}
+  xMin={-Math.PI * 2}
+  xMax={Math.PI * 2}
+  width={700}
+  height={500}
+/>
+
+## Polynomial Functions
+
+<MathGraph
+  title="x, x², x³"
+  functions={[
+    { func: (x) => x, color: '#3b82f6', label: 'x' },
+    { func: (x) => x * x, color: '#ec4899', label: 'x²' },
+    { func: (x) => x * x * x, color: '#10b981', label: 'x³' }
+  ]}
+  xMin={-3}
+  xMax={3}
+  width={700}
+  height={500}
+/>
+
+## Exponential vs Logarithmic
+
+<MathGraph
+  title="eˣ vs ln(x)"
+  functions={[
+    { func: (x) => Math.exp(x), color: '#ec4899', label: 'eˣ' },
+    { func: (x) => Math.log(x), color: '#3b82f6', label: 'ln(x)' }
+  ]}
+  xMin={-2}
+  xMax={3}
+  width={700}
+  height={500}
+/>
+
+## Features
+
+- 🎨 **Auto Colors** - Functions get different colors automatically
+- 🏷️ **Legend** - Shows which function is which
+- 🔍 **Interactive** - Pan and zoom to explore
+- 📊 **Compare** - See multiple functions at once
+
+## Usage
+
+### Single Function (Old Way - Still Works!)
+\`\`\`jsx
+<MathGraph
+  title="Single function"
+  func={(x) => x * x}
+  color="#ec4899"
+/>
+\`\`\`
+
+### Multiple Functions (New Way!)
+\`\`\`jsx
+<MathGraph
+  title="Multiple functions"
+  functions={[
+    { func: (x) => Math.sin(x), color: '#3b82f6', label: 'sin(x)' },
+    { func: (x) => Math.cos(x), color: '#ec4899', label: 'cos(x)' }
+  ]}
+/>
+\`\`\`
+
+Try dragging and scrolling on any graph above! 🚀

@@ -1,0 +1,159 @@
+import MathGraph3D from '@/components/MathGraph3D'
+
+export const metadata = {
+  title: "3D Mathematical Surfaces",
+  description: "Explore 3D surfaces and functions in an interactive viewer",
+  date: "2025-01-25",
+  author: "Math Educator",
+  tags: ["3d", "surfaces", "visualization", "multivariable"]
+}
+
+# 3D Mathematical Surfaces
+
+Explore mathematical functions in three dimensions! Drag to rotate, scroll to zoom.
+
+## Paraboloid
+
+The classic 3D parabola: **z = x² + y²**
+
+<MathGraph3D
+  title="Paraboloid: z = x² + y²"
+  func={(x, y) => x * x + y * y}
+  xMin={-3}
+  xMax={3}
+  yMin={-3}
+  yMax={3}
+  color="#3b82f6"
+  gridSize={25}
+/>
+
+## Saddle Surface (Hyperbolic Paraboloid)
+
+A saddle shape: **z = x² - y²**
+
+<MathGraph3D
+  title="Saddle: z = x² - y²"
+  func={(x, y) => x * x - y * y}
+  xMin={-3}
+  xMax={3}
+  yMin={-3}
+  yMax={3}
+  color="#ec4899"
+  gridSize={25}
+/>
+
+## Ripple Effect
+
+Sine waves in both directions: **z = sin(√(x² + y²))**
+
+<MathGraph3D
+  title="Ripple: z = sin(√(x² + y²))"
+  func={(x, y) => Math.sin(Math.sqrt(x * x + y * y))}
+  xMin={-5}
+  xMax={5}
+  yMin={-5}
+  yMax={5}
+  color="#10b981"
+  gridSize={30}
+/>
+
+## Cone
+
+A simple cone: **z = √(x² + y²)**
+
+<MathGraph3D
+  title="Cone: z = √(x² + y²)"
+  func={(x, y) => Math.sqrt(x * x + y * y)}
+  xMin={-3}
+  xMax={3}
+  yMin={-3}
+  yMax={3}
+  color="#f59e0b"
+  gridSize={25}
+/>
+
+## Wave Interference
+
+Two sine waves: **z = sin(x) + cos(y)**
+
+<MathGraph3D
+  title="Wave: z = sin(x) + cos(y)"
+  func={(x, y) => Math.sin(x) + Math.cos(y)}
+  xMin={-Math.PI * 2}
+  xMax={Math.PI * 2}
+  yMin={-Math.PI * 2}
+  yMax={Math.PI * 2}
+  color="#8b5cf6"
+  gridSize={30}
+/>
+
+## Mexican Hat (Sombrero)
+
+The classic: **z = sin(√(x² + y²)) / √(x² + y²)**
+
+<MathGraph3D
+  title="Mexican Hat"
+  func={(x, y) => {
+    const r = Math.sqrt(x * x + y * y)
+    return r === 0 ? 1 : Math.sin(r) / r
+  }}
+  xMin={-10}
+  xMax={10}
+  yMin={-10}
+  yMax={10}
+  color="#ec4899"
+  gridSize={30}
+/>
+
+## Multiple Surfaces
+
+Compare two surfaces at once!
+
+<MathGraph3D
+  title="Paraboloid vs Inverted Paraboloid"
+  surfaces={[
+    { func: (x, y) => x * x + y * y, color: '#3b82f6', label: 'z = x² + y²' },
+    { func: (x, y) => -(x * x + y * y), color: '#ec4899', label: 'z = -(x² + y²)' }
+  ]}
+  xMin={-2}
+  xMax={2}
+  yMin={-2}
+  yMax={2}
+  gridSize={20}
+/>
+
+## Features
+
+- 🔄 **Rotate** - Drag to rotate the view
+- 🔍 **Zoom** - Scroll to zoom in/out
+- 📐 **Axes** - Color-coded X (red), Y (green), Z (blue)
+- 🎨 **Wireframe** - Beautiful mesh rendering
+- 📱 **Touch** - Works on mobile devices
+
+## Usage
+
+### Single Surface
+\`\`\`jsx
+<MathGraph3D
+  title="My 3D Function"
+  func={(x, y) => x * x + y * y}
+  xMin={-3}
+  xMax={3}
+  yMin={-3}
+  yMax={3}
+  color="#3b82f6"
+/>
+\`\`\`
+
+### Multiple Surfaces
+\`\`\`jsx
+<MathGraph3D
+  title="Compare Surfaces"
+  surfaces={[
+    { func: (x, y) => x * x, color: '#3b82f6', label: 'z = x²' },
+    { func: (x, y) => y * y, color: '#ec4899', label: 'z = y²' }
+  ]}
+/>
+\`\`\`
+
+Try rotating any graph above! 🚀

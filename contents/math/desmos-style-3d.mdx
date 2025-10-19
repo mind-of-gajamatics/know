@@ -1,0 +1,108 @@
+---
+title: "Desmos-Style 3D Controls"
+date: "2024-03-20"
+description: "Experience professional 3D graph controls inspired by Desmos - orbit, pan, zoom with momentum!"
+---
+
+# Desmos-Style 3D Graph Controls 🎮
+
+Our 3D graphing component now features professional controls inspired by Desmos! Experience smooth interactions with momentum, multiple control modes, and a beautiful grid floor.
+
+## 🎯 Control Features
+
+### Mouse Controls
+- **Left-Click + Drag** - Orbit/rotate around the center
+- **Right-Click + Drag** - Pan the view laterally
+- **Shift + Drag** - Alternative pan control
+- **Scroll Wheel** - Smooth zoom in/out
+- **Momentum** - Throw the graph with a flick!
+
+### Touch Controls
+- **One Finger Drag** - Rotate the graph
+- **Two Finger Drag** - Pan the view
+- **Pinch** - Zoom in and out
+
+### Quick View Buttons
+- **🏠 Home** - Reset to default view
+- **▶️ Auto** - Auto-rotate for presentations
+- **🟩 Grid** - Toggle grid floor
+- **X/Y/Z** - Jump to axis-aligned views
+
+## Wave Surface with Grid
+
+Here's a beautiful wave pattern that shows off the grid floor:
+
+<MathGraph3D
+  func={(x, y) => Math.sin(Math.sqrt(x * x + y * y)) * Math.cos(x * 0.5)}
+  xMin={-5}
+  xMax={5}
+  yMin={-5}
+  yMax={5}
+  color="#3b82f6"
+  title="Wave Surface z = sin(√(x² + y²)) · cos(x/2)"
+  showGrid={true}
+/>
+
+## Gaussian Hill
+
+Try orbiting around this smooth gaussian hill:
+
+<MathGraph3D
+  func={(x, y) => 3 * Math.exp(-0.3 * (x * x + y * y))}
+  xMin={-5}
+  xMax={5}
+  yMin={-5}
+  yMax={5}
+  color="#10b981"
+  title="Gaussian Hill z = 3e^(-0.3(x² + y²))"
+/>
+
+## Saddle Surface
+
+The classic saddle point - try the momentum feature by flicking it:
+
+<MathGraph3D
+  func={(x, y) => (x * x - y * y) / 4}
+  xMin={-5}
+  xMax={5}
+  yMin={-5}
+  yMax={5}
+  color="#f59e0b"
+  title="Saddle Surface z = (x² - y²)/4"
+/>
+
+## Multiple Surfaces with Pan
+
+Use right-click + drag or Shift + drag to pan and see both surfaces:
+
+<MathGraph3D
+  surfaces={[
+    { func: (x, y) => 2 * Math.sin(x) * Math.cos(y), color: '#ef4444', label: 'z = 2sin(x)cos(y)' },
+    { func: (x, y) => Math.cos(x * y) * 1.5, color: '#8b5cf6', label: 'z = 1.5cos(xy)' }
+  ]}
+  xMin={-3}
+  xMax={3}
+  yMin={-3}
+  yMax={3}
+  title="Multiple Surfaces - Try Panning!"
+/>
+
+## 🎨 Visual Enhancements
+
+- **Grid Floor** - Clear reference plane like Desmos
+- **Depth-Based Shading** - Surfaces are shaded based on depth
+- **Smooth Animations** - All movements use smooth transitions
+- **Momentum Physics** - Flick to spin with natural deceleration
+- **Pan Offset** - Move the view without rotating
+- **Gradient Background** - Beautiful subtle gradient
+
+## 💡 Pro Tips
+
+1. **Orbit Around** - Left-drag to examine from any angle
+2. **Pan to Focus** - Right-drag to center interesting features
+3. **Quick Views** - Use X/Y/Z buttons for standard viewpoints
+4. **Auto-Rotate** - Perfect for demonstrations and screenshots
+5. **Toggle Grid** - Turn off for cleaner screenshots
+6. **Momentum Spin** - Flick fast for a smooth spin effect
+
+Try all the controls on any graph above! The interactions feel smooth and natural, just like professional graphing calculators.
