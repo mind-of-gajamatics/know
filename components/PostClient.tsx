@@ -1,28 +1,38 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { PostMetadata } from '@/lib/server'
 import { ComponentType } from 'react'
+
+interface PostMetadata {
+  slug: string
+  category: string
+  title: string
+  description: string
+  date: string
+  author: string
+  tags: string[]
+}
 
 interface PostClientProps {
   metadata: PostMetadata
+  category: string
   slug: string
 }
 
-export default function PostClient({ metadata, slug }: PostClientProps) {
+export default function PostClient({ metadata, category, slug }: PostClientProps) {
   const [MDXContent, setMDXContent] = useState<ComponentType | null>(null)
 
   useEffect(() => {
     async function loadMDX() {
       try {
-        const mdxModule = await import(`@/contents/posts/${slug}.mdx`)
+        const mdxModule = await import(`@/contents/${category}/${slug}.mdx`)
         setMDXContent(() => mdxModule.default)
       } catch (error) {
         console.error('Failed to load MDX:', error)
       }
     }
     loadMDX()
-  }, [slug])
+  }, [category, slug])
 
   if (!MDXContent) {
     return (
